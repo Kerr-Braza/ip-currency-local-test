@@ -43,7 +43,7 @@ export default function Hero() {
         // return setLocalPricing(priceConversion);
     }
 
-    fetchExRate();
+    // fetchExRate();
 
     return (
         <div className="hero">
