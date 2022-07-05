@@ -7,6 +7,12 @@ export default function Hero() {
     const [userCountry, setUserCountry] = useState("Canada");
 
     async function fetchUserCurrency() {
+        //8.8.8.8 below should be replaced with user IP...
+        // npm install express-ip -> This can allow the server to grab ip address for ip lookup
+
+        const grabUserIp = await fetch("https://api.ipify.org?format=json/"); //api.ipfy.org external api I grab, but is blocked by client of course
+        console.log("Test after the React-only deployment:: userIP:", grabUserIp);
+        
         const ipApiResponse = await fetch('https://ipapi.co/8.8.8.8/json/');
         const ipApiResult = await ipApiResponse.json();
 
@@ -19,11 +25,6 @@ export default function Hero() {
         const userCurrency = await fetchUserCurrency();
 
         //Can wrap in own try catch with manual check for other errors (non-400)
-        //8.8.8.8 below should be replaced with user IP...
-        // npm install express-ip -> This can allow the server to grab ip address for ip lookup
-
-        const grabUserIp = await fetch("https://api.ipify.org?format=json/"); //api.ipfy.org external api I grab
-        console.log("Test after the React-only deployment:: userIP:", grabUserIp);
 
         const currCodeDict = {"AUD": "$", "CAD": "$", "USD": "$", "EUR": "€", "GBP": "£", "JPY": "¥"};
         const currencyCode = (userCurrency in currCodeDict) ? userCurrency : "CAD";
