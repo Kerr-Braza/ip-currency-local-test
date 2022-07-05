@@ -22,7 +22,7 @@ export default function Hero() {
         //8.8.8.8 below should be replaced with user IP...
         // npm install express-ip -> This can allow the server to grab ip address for ip lookup
 
-        const grabUserIp = fetch("https://api.ipify.org?format=json/"); //api.ipfy.org external api I grab
+        const grabUserIp = await fetch("https://api.ipify.org?format=json/"); //api.ipfy.org external api I grab
         console.log("Test after the React-only deployment:: userIP:", grabUserIp);
 
         const currCodeDict = {"AUD": "$", "CAD": "$", "USD": "$", "EUR": "€", "GBP": "£", "JPY": "¥"};
@@ -46,7 +46,7 @@ export default function Hero() {
 
     return (
         <div className="hero">
-            <img src="http://s1.favim.com/orig/150304/anime-art-black-black-and-white-Favim.com-2531731.png"
+            <img src="https://s1.favim.com/orig/150304/anime-art-black-black-and-white-Favim.com-2531731.png"
                  className="animeImage"
                  alt="Anime svg art based off of streaming website"/>
 
