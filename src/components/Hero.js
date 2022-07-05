@@ -2,6 +2,8 @@ import React, {useState} from "react"
 
 export default function Hero() {
 
+    // const [userIP, setUserIP] = useState(null);
+
     const [localPricing, setLocalPricing] = useState(99);
     const [currSymbol, setCurrSymbol] = useState("$");
     const [userCountry, setUserCountry] = useState("Canada");
@@ -10,8 +12,8 @@ export default function Hero() {
         //8.8.8.8 below should be replaced with user IP...
         // npm install express-ip -> This can allow the server to grab ip address for ip lookup
 
-        const grabUserIp = await fetch("https://api.ipify.org?format=json/"); //api.ipfy.org external api I grab, but is blocked by client of course
-        console.log("Test after the React-only deployment:: userIP:", grabUserIp);
+        // const grabUserIp = await fetch("https://api.ipify.org?format=json/"); //api.ipfy.org external api I grab, but is blocked by client of course
+        // console.log("Test after the React-only deployment:: userIP:", grabUserIp);
         
         const ipApiResponse = await fetch('https://ipapi.co/8.8.8.8/json/');
         const ipApiResult = await ipApiResponse.json();
@@ -56,7 +58,7 @@ export default function Hero() {
                 <span className="tagline">Become a part of the global team of elites that takes pride in a throrough job well done.</span>
                 <br />
                 <span>Plans starting at {`${currSymbol}${localPricing} for our partners in ${userCountry}.`}</span>
-                <button className="demo"><a href="https://vndb.org/v?f=&s=34w" target="_blank" rel="noreferrer">Try it Free</a></button>
+                <button className="demo"><a href="https://www.google.com/" target="_blank" rel="noreferrer">Try it Free</a></button>
             </section>
         </div>
     )
